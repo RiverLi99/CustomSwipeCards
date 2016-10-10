@@ -11,8 +11,16 @@
         app:cardBackgroundColor="#ff00ff" />
 
     <com.nd.river.customswipecards.customview.SwipeCardView
+        android:id="@+id/swipe_card"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true"
         app:cardBackgroundColor="#00ff00" />
+
+    <Button
+        android:id="@+id/btn_clear_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="clear animation" />
 </RelativeLayout>

@@ -41,6 +41,10 @@ public class SwipeCardView extends CardView {
      * 手指触摸的起始和终止点
      */
     private PointFloat mStartPoint, mEndPoint;
+    /**
+     * 监听Flip滑动结束
+     */
+    private OnFlipFinishListener mListener;
 
     public SwipeCardView(Context context) {
         super(context);
@@ -274,10 +278,22 @@ public class SwipeCardView extends CardView {
                         || (viewX + diagonal < 0 && viewY > windowHeight)
                         || (viewX + diagonal < 0 && viewY + diagonal < 0)) {
                     timer.cancel();
+
+                    if (mListener != null) {
+                        mListener.onFlipFinish();
+                    }
                 }
             }
         };
 
         timer.schedule(task, 0, 2);
+    }
+
+    public interface OnFlipFinishListener {
+        void onFlipFinish();
+    }
+
+    public void setOnFlipFinishListener(OnFlipFinishListener mListener) {
+        this.mListener = mListener;
     }
 }

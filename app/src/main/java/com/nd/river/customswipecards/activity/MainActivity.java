@@ -1,4 +1,4 @@
-package com.nd.river.customswipecards;
+package com.nd.river.customswipecards.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.nd.river.customswipecards.activity.SwipeCardActivity;
+import com.nd.river.customswipecards.R;
 import com.nd.river.customswipecards.others.PointFloat;
 
 import java.util.Timer;
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private RelativeLayout mContentMainLayout;
     private FloatingActionButton mFab;
     private Button mFirstTestBtn;
+    private Button mSecondTestBtn;
     private int containerWidth;
     private int containerHeight;
     float lastDistanceX, lastDistanceY;
@@ -58,11 +59,13 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         mTestCard = (CardView) this.findViewById(R.id.cv_test);
         mContentMainLayout = (RelativeLayout) this.findViewById(R.id.content_main);
         mFirstTestBtn = (Button) this.findViewById(R.id.btn_test_first);
+        mSecondTestBtn = (Button) this.findViewById(R.id.btn_test_second);
     }
 
     private void initEvents() {
         mTestCard.setOnTouchListener(this);
         mFirstTestBtn.setOnClickListener(this);
+        mSecondTestBtn.setOnClickListener(this);
     }
 
     @Override
@@ -213,6 +216,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             case R.id.btn_test_first:
                 Intent intent = new Intent(MainActivity.this, SwipeCardActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btn_test_second:
+                Intent intent2 = new Intent(MainActivity.this, SwipeCardRollActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
